@@ -1,0 +1,5 @@
+
+<div class="form-group {{ ($errors->has('__FIELD__') ? ' has-error' : '') }}">
+ {!! Form::label('__FIELD__', '__LABEL__:', ['class' => 'control-label']) !!}
+ {!! Form::date('__FIELD__', \Carbon\Carbon::now(), ['class' => 'form-control' . ($errors->has('__FIELD__') ? ' has-error' : '')]) !!}
+</div>

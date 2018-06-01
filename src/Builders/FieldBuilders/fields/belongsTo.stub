@@ -1,0 +1,7 @@
+    /**
+     * Define a relationship
+     */
+    public function __METHOD__()
+    {
+        return $this->belongsTo(__MODEL____FOREIGN_KEY____OTHER_KEY__)->withDefault();
+    }

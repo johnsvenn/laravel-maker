@@ -1,0 +1,46 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+                __MODEL.NAME.HUMAN.PLURAL__
+            </div>
+            <div class="card-body">
+              @if (\Session::has('success'))
+              <div class="alert alert-success alert-dismissible fade show">
+                  {{ \Session::get('success') }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              @endif
+              <div class="row">
+                <div class="col-md-3 mb-4">
+        
+
+                <p><a href="{{ action('__CONTROLLER.NAMESPACE__\__CONTROLLER.NAME____CONTROLLER.NAMESPACE__Controller@create') }}" class="btn btn-success">Create a new __MODEL.NAME.HUMAN__</a></p>
+              </div>
+            
+            <br />
+
+            
+            <div class="col-md-9 mb-4">
+                 @include('admin.partials.search')
+            </div>
+
+            <table class="table table-responsive-sm table-striped">
+                __METHOD.ADMIN.INDEX__
+            </table>
+            
+            {{ $__MODEL.VAR.NAME.PLURAL__->links() }}
+        
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+@endsection

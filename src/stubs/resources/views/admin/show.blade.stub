@@ -1,0 +1,34 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container-fluid">
+         <div class="row">
+             <div class="col">
+                 <div class="card">
+                     <div class="card-header">
+                        __MODEL.NAME__ details
+                     </div>
+                     <div class="card-body">
+
+                     <div class="clearfix">@include('admin.__MODEL.VAR.NAME.PLURAL__.partials.edit-delete-buttons')</div>
+                     <br />
+
+                     <table class="table table-striped table-hover table-bordered">
+                       <thead>
+                         <tr>
+                           <th>Field</th>
+                           <th>Value</th>
+                         </tr>
+                       </thead>
+                       <tbody>
+
+                          __METHOD.ADMIN.SHOW__
+
+                       </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+
+    </div>
+@endsection

@@ -1,0 +1,38 @@
+Example:
+    model:
+        name: Example
+        table: examples
+        fields:
+            id:
+                type: unsignedInteger
+                modifiers:
+                    - autoIncrement()
+                    - unsigned()
+            name:
+                type: string, 100
+            slug:
+                type: string, 120
+                modifiers:
+                    - nullable()
+                    - default('defaultslug')
+            content:
+                type: text
+            doublefield:
+                type: double
+            decimalfield:
+                type: decimal, 8,2
+            decimalfielddefault:
+                type: decimal, 8,2
+                modifiers:
+                    - default('20.00')
+            options:
+                type: enum, ['one','two','three']
+            created_at:
+                type: timestamp
+                modifiers:
+                    - nullable()
+                    - useCurrent()
+            updated_at:
+                type: timestamp
+                modifiers:
+                    - nullable()

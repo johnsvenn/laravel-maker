@@ -1,0 +1,8 @@
+
+<div class="form-group {{  ($errors->has('__FIELD__') ? ' has-error' : '') }}">
+    {!! Form::label('__FIELD__', '__LABEL__:', ['class' => 'control-label']) !!}
+    {!! Form::__FIELD_TYPE__('__FIELD__', null, ['class' => 'form-control', 'placeholder' => '__PLACEHOLDER__', 'rows' => '16']) !!}
+    <script>
+         CKEDITOR.replace( '__FIELD__' );
+    </script>
+</div>

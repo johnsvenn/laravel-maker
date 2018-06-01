@@ -1,0 +1,72 @@
+  
+        
+Author:
+  model:
+    fields:
+      user_id:
+        type: integer
+      name:
+        label: Author name
+        type: string, 100
+        rules: required|unique:authors|max:100
+        messages: Please add the author name
+        placeholder: Name
+      slug:
+        type: string, 120
+        rules: required|unique:authors|max:120
+        validate:
+          - required
+        show:
+          - admin.index
+      biography:
+        type: text
+        modifiers:
+          - nullable()
+      is_alive:
+        type: boolean
+        label: Active?
+    relationships:
+      hasMany:
+        - Book
+      belongsTo:
+        - User
+        
+      
+
+
+Book:
+  model:
+    fields:
+      author_id:
+        type: integer
+      name:
+        type: string
+        validate:
+          - required
+        hide:
+          - admin.index
+      slug:
+        type: string
+        modifiers:
+          - nullable()
+        validate:
+          - required
+        show:
+          - admin.index
+      cost:
+        type: decimal, 8, 2
+        modifiers:
+          - default('6.99')
+      content:
+        type: text
+      date_published:
+        type: date
+        fillable: false
+        hidden: true
+        modifiers:
+          - nullable()
+    relationships:
+      belongsTo: 
+        - Author, author_id
+
+

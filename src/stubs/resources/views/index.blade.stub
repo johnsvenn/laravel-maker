@@ -1,0 +1,27 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row">
+        
+            @foreach($__MODEL.VAR.NAME.PLURAL__ as $__MODEL.VAR.NAME__)
+            
+              __METHOD.INDEX__
+        
+               
+              <div class="col-md-3 post">
+                <div class="panel panel-default">
+                  <div class="panel-heading"><a href="/__RESOURCE.VIEW.DIRECTORY__/{{ $__MODEL.VAR.NAME__['id'] }}">{{ $__MODEL.VAR.NAME__['name'] }}</a></div>
+                  <div class="panel-body">
+                    Panel content
+                  </div>
+                </div>
+              </div> 
+              
+            @endforeach
+            
+            {{ $__MODEL.VAR.NAME.PLURAL__->links() }}
+
+        </div>
+    </div>
+@endsection

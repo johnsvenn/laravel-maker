@@ -1,0 +1,20 @@
+<thead>
+  <tr>
+    __THEAD__
+    <th>&nbsp;</th>
+  </tr>
+</thead>
+<tbody>
+    @foreach($__MODEL.VAR.NAME.PLURAL__ as $__MODEL.VAR.NAME__)
+        <tr>
+            __TBODY__
+            <td class="text-right">
+            
+            <a href="{{action('__CONTROLLER.NAMESPACE__\__CONTROLLER.NAME____CONTROLLER.NAMESPACE__Controller@show', $__MODEL.VAR.NAME__->id)}}" class="btn btn-info pull-right">Show</a>
+            
+            @include('__RESOURCE.VIEW.NAMESPACE__.__MODEL.VAR.NAME.PLURAL__.partials.edit-delete-buttons')
+           
+            </td>
+        </tr>
+    @endforeach
+</tbody>

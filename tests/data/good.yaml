@@ -1,0 +1,24 @@
+Post:
+  model: 
+    name: Post
+    table: posts
+    fields:
+      name:
+        label: Name
+        type: string, 100
+        rules: required|unique:posts|max:255
+        messages: Please choose a name
+      slug:
+        type: string, 120
+        rules: required|unique:posts|max:255
+        validate:
+          - required
+      content:
+        type: text
+      money:
+        type: decimal, 8, 2
+        modifiers:
+          - default('20.00')
+  
+
+    

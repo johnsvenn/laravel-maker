@@ -1,0 +1,7 @@
+/**
+ * Define a relationship
+ */
+public function __METHOD__()
+{
+    return $this->belongsToMany(__MODEL____JOIN_TABLE____NEAR_FOREIGN_KEY____FAR_FOREIGN_KEY__);
+}

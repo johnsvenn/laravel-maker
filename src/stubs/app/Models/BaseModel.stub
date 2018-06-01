@@ -1,0 +1,91 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
+
+
+abstract class BaseModel extends Model
+{
+    
+    /**
+     * Filter the results or just return a list
+     * 
+     * @param Request $request
+     * @return unknown
+     */
+    public function indexFilter(Request $request, $eagerload = [])
+    {
+        
+        $limit = config('maker.limit');
+        
+        $query = $request->query();
+        
+        if ($this->useFilter($query)) {
+            
+            $data = $this->with($eagerload)->where($query['field'], '=', $query['value'])->paginate($limit);
+ 
+        } else {
+            
+            $data = $this->with($eagerload)->paginate($limit);
+
+        }
+        
+        return $data;
+        
+    }
+    
+    /**
+     * Is the filter request valid?
+     * 
+     * @param unknown $query
+     * @return boolean
+     */
+    private function useFilter($query)
+    {
+        
+        $return = false;
+        
+        if (isset($query['filter']) && isset($query['field']) && isset($query['value'])) {
+            
+            if (!empty($query['field']) && !empty($query['value'])) {
+                
+                
+                $return = true;
+                
+                
+            }
+            
+            
+        }
+        
+        return $return;
+        
+    }
+    
+    /**
+     * Return the fileterable fields from the model
+     * 
+     * @return array
+     */
+    public function filterFields()
+    {
+        if (isset($this->filter_fields)) {
+            
+            return $this->filter_fields;
+            
+        } else {
+            
+            return ['id' => 'ID'];
+            
+        }
+        
+    }
+      
+    
+ 
+    
+}

@@ -1,0 +1,5 @@
+<a href="{{action('__CONTROLLER.NAMESPACE__\__CONTROLLER.NAME____CONTROLLER.NAMESPACE__Controller@edit', $__MODEL.VAR.NAME__->id)}}" class="btn btn-secondary btn-edit pull-right">Edit</a>
+  
+<a href="{{action('__CONTROLLER.NAMESPACE__\__CONTROLLER.NAME____CONTROLLER.NAMESPACE__Controller@delete', $__MODEL.VAR.NAME__->id)}}" class="btn btn-danger btn-edit pull-right">Delete</a>
+              
+

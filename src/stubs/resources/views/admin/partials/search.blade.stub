@@ -1,0 +1,17 @@
+<form class="form-inline float-md-right" action="" method="get">
+    {{csrf_field()}}
+    
+    <div class="form-group">
+   
+    {!! Form::select('field', $filter_fields, null, ['class' => 'form-control', 'placeholder' => 'Filter by...']) !!}
+    
+    </div>
+    
+    <div class="form-group">
+   
+    {!! Form::text('value', null, ['class' => 'form-control', 'placeholder' => 'Value']) !!}
+    
+    </div>
+
+    <input class="btn btn-primary" type="submit" name="filter" value="Filter" />
+</form>

@@ -1,0 +1,24 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+                Edit __MODEL.NAME.HUMAN__
+            </div>
+            <div class="card-body">
+
+                {!! Form::model($__MODEL.VAR.NAME__, ['method' => 'put', 'action' => ['__CONTROLLER.NAMESPACE__\__CONTROLLER.NAME__AdminController@update', $__MODEL.VAR.NAME__->id], 'files' => true]) !!}
+    
+                    @include('admin.__MODEL.VAR.NAME.PLURAL__.partials.form', ['submitButtonText' => 'Update __MODEL.NAME.HUMAN__'])
+    
+                {!! Form::close() !!}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+@endsection

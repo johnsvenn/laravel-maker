@@ -1,0 +1,16 @@
+Route::group([
+    'namespace' => '__CONTROLLER.NAMESPACE__',
+    'prefix' => '__RESOURCE.VIEW.NAMESPACE__',
+    'as' => '__RESOURCE.VIEW.NAMESPACE__',
+    'middleware' => 'auth'
+], function() {
+
+    Route::resource('__ROUTE.SLUG__', '__CONTROLLER.NAME____CONTROLLER.NAMESPACE__Controller');
+    
+    Route::get('__ROUTE.SLUG__/{__MODEL.VAR.NAME__}/delete', '__CONTROLLER.NAME____CONTROLLER.NAMESPACE__Controller@delete')->name('__ROUTE.SLUG__.delete');
+
+});
+
+Route::get('__ROUTE.SLUG__/{id}', '__CONTROLLER.NAME__Controller@show');
+Route::get('__ROUTE.SLUG__', '__CONTROLLER.NAME__Controller@index');
+

@@ -1,0 +1,80 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+
+class __MODEL.NAME__ extends BaseModel
+{
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = '__MODEL.TABLE__';
+    
+__METHOD.MODEL.RELATIONSHIPS__
+    
+    /**
+     * White list containing the attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        __MODEL.FILLABLE__
+    ];
+    
+    /**
+     * Black list containing the attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [
+        __MODEL.GUARDED__
+    ];
+    
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        __MODEL.HIDDEN__
+    ];
+    
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        __MODEL.DATES__
+    ];
+    
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+
+    ];
+    
+    /**
+     * An array of fields to show in the admin list view filter
+     *
+     * @var array
+     */
+    protected $filter_fields = [
+        
+        __MODEL.FILTER.FIELDS__
+        
+    ];
+    
+    
+    
+    
+    
+    
+}

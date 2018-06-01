@@ -1,0 +1,129 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Models\__MODEL.NAME__;
+use Facades\App\Models\__MODEL.NAME__ as __MODEL.NAME__Facade;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BaseAdminController;
+use App\Http\Requests\Store__MODEL.NAME__Request;
+use App\Http\Requests\Update__MODEL.NAME__Request;
+
+class __CONTROLLER.NAME__AdminController extends BaseAdminController
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+
+        $eagerload = [];
+
+        $__MODEL.VAR.NAME.PLURAL__ = __MODEL.NAME__Facade::indexFilter($request, $eagerload);
+        
+        $filter_fields = __MODEL.NAME__Facade::filterFields();
+
+        return view('__RESOURCE.VIEW.NAMESPACE__.__RESOURCE.VIEW.DIRECTORY__.index', compact('__MODEL.VAR.NAME.PLURAL__', 'filter_fields'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $__MODEL.VAR.NAME__ = new __MODEL.NAME__;
+        
+        __METHOD.RELATIONSHIP.LOOKUP.QUERIES__
+
+        return view('__RESOURCE.VIEW.NAMESPACE__.__RESOURCE.VIEW.DIRECTORY__.create', compact('__MODEL.VAR.NAME__'__METHOD.RELATIONSHIP.LOOKUP.VARS__));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Store__MODEL.NAME__Request $request)
+    {
+
+
+        $__MODEL.VAR.NAME__ = __MODEL.NAME__::create($request->all());
+
+        return redirect()->route('__ROUTE.PREFIX____ROUTE.SLUG__.index')
+        ->withSuccess('Thank you for creating a __MODEL.NAME.HUMAN__');
+
+
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\__MODEL.NAME__  $__MODEL.VAR.NAME__
+     * @return \Illuminate\Http\Response
+     */
+    public function show(__MODEL.NAME__ $__MODEL.VAR.NAME__)
+    {
+        return view('__RESOURCE.VIEW.NAMESPACE__.__RESOURCE.VIEW.DIRECTORY__.show', compact('__MODEL.VAR.NAME__'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\__MODEL.NAME__  $__MODEL.VAR.NAME__
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(__MODEL.NAME__ $__MODEL.VAR.NAME__)
+    {
+    
+        __METHOD.RELATIONSHIP.LOOKUP.QUERIES__
+        
+        return view('__RESOURCE.VIEW.NAMESPACE__.__RESOURCE.VIEW.DIRECTORY__.edit', compact('__MODEL.VAR.NAME__'__METHOD.RELATIONSHIP.LOOKUP.VARS__));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\__MODEL.NAME__  $__MODEL.VAR.NAME__
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Update__MODEL.NAME__Request $request, __MODEL.NAME__ $__MODEL.VAR.NAME__)
+    {
+         
+        $__MODEL.VAR.NAME__->update($request->all());
+
+        return redirect()->route('__ROUTE.PREFIX____ROUTE.SLUG__.index')
+        ->withSuccess('Thank you for updating a __MODEL.NAME.HUMAN__');
+    }
+    
+     /**
+     * Confirm deletion of the specified resource.
+     *
+     * @param  \App\Models\__MODEL.NAME__  $__MODEL.VAR.NAME__
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(__MODEL.NAME__ $__MODEL.VAR.NAME__)
+    {
+        return view('__RESOURCE.VIEW.NAMESPACE__.__RESOURCE.VIEW.DIRECTORY__.delete', compact('__MODEL.VAR.NAME__'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\__MODEL.NAME__  $__MODEL.VAR.NAME__
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(__MODEL.NAME__ $__MODEL.VAR.NAME__)
+    {
+        $__MODEL.VAR.NAME__->delete($__MODEL.VAR.NAME__);
+
+        return redirect()->route('__ROUTE.PREFIX____ROUTE.SLUG__.index')
+        ->withSuccess('Thank you for deleting the __MODEL.NAME.HUMAN__');
+    }
+}

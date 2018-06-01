@@ -1,0 +1,7 @@
+    /**
+     * Define a relationship
+     */
+    public function __METHOD__()
+    {
+        return $this->hasMany(__MODEL____FOREIGN_KEY____LOCAL_KEY__);
+    }

@@ -1,0 +1,4 @@
+<tr>
+    <td>__LABEL__</td>
+    <td>{{ $__MODEL.VAR.NAME__->__FIELD__ }}</td>
+</tr>

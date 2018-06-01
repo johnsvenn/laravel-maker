@@ -1,0 +1,6 @@
+
+<div class="form-check {{ ($errors->has('__FIELD__') ? ' has-error' : '') }}">
+ {!! Form::hidden('__FIELD__', 0, ['id' => '__FIELD___hidden']) !!}
+ {!! Form::checkbox('__FIELD__', 1, null, ['class' => 'form-check-input']) !!}
+ {!! Form::label('__FIELD__', '__LABEL__', ['class' => 'form-check-label']) !!}
+</div>

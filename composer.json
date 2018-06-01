@@ -1,0 +1,26 @@
+{
+	"name" : "ab-creative/laravel-maker",
+	"description" : "Laravel 5.6 scaffolding generator",
+	"type" : "library",
+	"keywords" : [
+		"laravel",
+		"crud",
+		"scaffolding",
+		"yaml"
+	],
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "John Elliott",
+			"email" : "john@ab-uk.com"
+		}
+	],
+	"require" : {
+		"php" : ">=7.1",
+		"laravelcollective/html" : "^5.5",
+		"felixkiss/uniquewith-validator" : "^3.1"
+	},
+	"require-dev" : {
+		"symfony/yaml" : "^3.3",
+		"laracasts/generators" : "^1.1"
+	}
+}

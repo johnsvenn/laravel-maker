@@ -1,0 +1,14 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row">
+        
+        
+            __METHOD.SHOW__
+        
+             
+
+        </div>
+    </div>
+@endsection
