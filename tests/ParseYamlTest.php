@@ -6,9 +6,6 @@ use Orchestra\Testbench\TestCase;
 use Illuminate\Filesystem\Filesystem;
 use AbCreative\LaravelMaker\Exceptions\ResourceValidatorException;
 
-/*
- * Run this with ../../../vendor/bin/phpunit
- */
 class ParseYamlTest extends Testcase
 {
    
@@ -35,7 +32,6 @@ class ParseYamlTest extends Testcase
         } else {
             
             $this->assertInstanceOf(Resource::class, $data[0]);
-            
             
         }
         

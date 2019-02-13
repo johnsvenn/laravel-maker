@@ -5,11 +5,6 @@ namespace AbCreative\LaravelMaker;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Filesystem\Filesystem;
 
-/*
- * Test of relationshsips using the default values
- * 
- * Run this with ../../../vendor/bin/phpunit
- */
 class NamespaceTest extends Testcase
 {
     
