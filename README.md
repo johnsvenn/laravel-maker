@@ -4,11 +4,11 @@
 
 Laravel Maker is a tool to kick start project development and help with prototyping by creating scaffolding.
 
-The goal of Laravel Maker is not to generate a production ready CMS but to simply take away some of the boring setup at the start of a project and create un-opinionated code that can easly be modified and extended. Laravel Maker is ideal for prototyping and experimenting - create definitions, generate code, try out, tweak, re-generate, repeat.
+The goal of Laravel Maker is not to create a production ready CMS but to give developers a head start at the beginning of a project by quickly creating un-opinionated code that can easly be modified and extended. Laravel Maker is ideal for prototyping and experimenting - generate code, test, tweak, re-generate, repeat.
 
-Laravel Maker is used to generate code that forms that basis for production projects, but it isn't stable yet and breaking changes do happen.
+Laravel Maker is used to generate code that forms that basis for production projects, but it isn't stable yet and breaking changes will happen.
 
-Define your Models in YAML (or generate YAML from existing database tables), then use artisan commands to generate Migrations, Models, Controllers, Views, Request classes etc.
+Define Models in YAML (or generate YAML from existing database tables), then use artisan commands to generate code and migrations.
 
 The package can create a complete CRUD scaffolding or individual elements:
 
@@ -16,8 +16,8 @@ The package can create a complete CRUD scaffolding or individual elements:
 - Base admin controller
 - Admin controller
 - Public controller
-- Update request
-- Store request
+- Update request class
+- Store request class
 - Base Model
 - Model
 - Repository (todo)
@@ -31,6 +31,7 @@ The package can create a complete CRUD scaffolding or individual elements:
 ## Requirements
 
 Laravel >= 5.6 
+
 
 ## Example usage
 
@@ -58,9 +59,8 @@ Note:
 This will create all the necessary files to create, edit, view, and delete notes and a migration file.
 
 
-
-
 ## Installation
+
 
 ### Setup a new Laravel site
 
@@ -68,8 +68,8 @@ Create a database and then setup a Laravel site as normal... e.g.
 
 ```bash
 
-laravel new scaffolding.example.com
-cd scaffolding.example.com
+laravel new laravel-maker.example.com
+cd laravel-maker.example.com
 php artisan key:generate
 nano .env
 php artisan migrate
@@ -118,7 +118,7 @@ e.g.
 }
 ```
 
-**Note** The above packages should install automatically using [Package Auto-Discovery](https://medium.com/@taylorotwell/package-auto-discovery-in-laravel-5-5-ea9e3ab20518) but you may need to update Composer e.g. `composer self-update` then `php artisan package:discover`
+**Note** The packages required in Laravel Maker should install automatically using [Package Auto-Discovery](https://medium.com/@taylorotwell/package-auto-discovery-in-laravel-5-5-ea9e3ab20518) but you may need to update Composer e.g. `composer self-update` then `php artisan package:discover`
 
 You probably only want the package to run in development therefore edit `app\Providers\AppServiceProvider.php` and edit the register method. 
 
@@ -159,6 +159,7 @@ You can then login to your site and goto `/admin/posts` or `/admin/books ` to se
 
 When you are finished, to delete your scaffolding run `php artisan build:clean example.yaml`
 
+
 ## Conventions
 
 The package tries to follow Laravel conventions e.g.
@@ -171,7 +172,6 @@ The package tries to follow Laravel conventions e.g.
 - @foreach($posts as $post)
 - views/posts/show.blade.php
 - views/admin/posts/show.blade.php
-
 
 
 ## YAML
@@ -241,6 +241,7 @@ Usage: `php artisan build:command file options`
 
 The package contains stub files that are processed and which are then published in your application.
 
+
 ### Stubs
 
 This directory mirrors the structure of Laravel and is setup to use Request and Repository classes. 
@@ -249,16 +250,17 @@ Stubs can be overloaded on a individual basis based on a paths defined in `confi
 
 ## Tests
 
+In order to run the tests you need to create a database with the following details:
 
-cd into `vendor/ab-creative/laravel-maker/` directory
+name: `laravelmakertests`
+username: `homestead`
+password: `secret`
 
-run `../../bin/phpunit` 
-
-  
 
 ## Copyright
 
 For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
+
 
 ## License
 
