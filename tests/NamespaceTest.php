@@ -2,7 +2,7 @@
 
 namespace AbCreative\LaravelMaker;
 
-use Tests\TestCase;
+use Orchestra\Testbench\TestCase;
 use Illuminate\Filesystem\Filesystem;
 
 /*

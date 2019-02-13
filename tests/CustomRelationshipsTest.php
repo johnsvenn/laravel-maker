@@ -2,20 +2,16 @@
 
 namespace AbCreative\LaravelMaker;
 
-use Tests\TestCase;
+use Orchestra\Testbench\TestCase;
 use Illuminate\Filesystem\Filesystem;
 use AbCreative\LaravelMaker\Exceptions\ResourceValidatorException;
 
 /*
- * Test realtionshsips that are don't use the defaults
+ * Test relationships that don't use the defaults
  * 
- * Run this with ../../../vendor/bin/phpunit
  */
 class CustomRelationshipsTest extends Testcase
 {
-    
-   
-    
     
     /**
      * Test a definition with custom method name and foregiegn_key e.g.

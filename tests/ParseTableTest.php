@@ -2,17 +2,33 @@
 
 namespace AbCreative\LaravelMaker;
 
-use Tests\TestCase;
+use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\DB;
 use AbCreative\LaravelMaker\ProcessTables;
+use AbCreative\LaravelMaker\Parsers\TestbenchFieldParser;
 use Illuminate\Support\Facades\File;
 
-
-/*
- * Run this with ../../../vendor/bin/phpunit
- */
 class ParseTableTest extends Testcase
 {
+    
+    /**
+     * Define environment setup.
+     *
+     * @param  \Illuminate\Foundation\Application  $app
+     * @return void
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+    
+        $app['config']->set('database.default', 'mysql');
+        $app['config']->set('database.connections.mysql', [
+                'driver'   => 'mysql',
+                'host' => 'localhost',
+                'database' => env('DB_DATABASE', 'laravelmakertests'),
+                'username' => env('DB_USERNAME', 'homestead'),
+                'password' => env('DB_PASSWORD', 'secret'),
+        ]);
+    }
     
     protected function load()
     {

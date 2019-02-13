@@ -2,13 +2,10 @@
 
 namespace AbCreative\LaravelMaker;
 
-use Tests\TestCase;
+use Orchestra\Testbench\TestCase;
 use Illuminate\Filesystem\Filesystem;
 use AbCreative\LaravelMaker\Exceptions\ResourceValidatorException;
 
-/*
- * Run this with ../../../vendor/bin/phpunit
- */
 class StubTest extends Testcase
 {
  
