@@ -4,11 +4,8 @@ namespace AbCreative\LaravelMaker\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use AbCreative\LaravelMaker\ProcessResourceDefinitions;
-use AbCreative\LaravelMaker\Builders\ModelBuilder;
 
-
-class BuildModelCommand extends BaseCommand 
+class BuildModelCommand extends BaseCommand
 {
     /**
      * The name and signature of the console command.
@@ -33,12 +30,10 @@ class BuildModelCommand extends BaseCommand
 
     /**
      * The resource_types to run...
-     * 
+     *
      * @var array
      */
     protected $resource_types = [
-        'Model'
+        'Model',
     ];
-    
-
 }

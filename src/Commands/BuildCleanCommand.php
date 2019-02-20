@@ -4,16 +4,8 @@ namespace AbCreative\LaravelMaker\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use AbCreative\LaravelMaker\ProcessResourceDefinitions;
-use AbCreative\LaravelMaker\Builders\ModelBuilder;
-use AbCreative\LaravelMaker\Builders\ControllerBuilder;
-use AbCreative\LaravelMaker\Builders\RequestBuilder;
-use AbCreative\LaravelMaker\Builders\MigrationBuilder;
-use AbCreative\LaravelMaker\Builders\ViewBuilder;
-use AbCreative\LaravelMaker\Builders\RouteBuilder;
 
-
-class BuildCleanCommand extends BaseCommand 
+class BuildCleanCommand extends BaseCommand
 {
     /**
      * The name and signature of the console command.
@@ -38,20 +30,18 @@ class BuildCleanCommand extends BaseCommand
 
     /**
      * The resource_types to run...
-     * 
+     *
      * @var array
      */
     protected $resource_types = [
-        
+
         'Migration',
         'Controller',
         'Template',
         'Model',
         'Request',
         'View',
-        'Route'
-        
-    ];
-    
+        'Route',
 
+    ];
 }

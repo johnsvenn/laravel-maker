@@ -4,13 +4,6 @@ namespace AbCreative\LaravelMaker\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use AbCreative\LaravelMaker\ProcessResourceDefinitions;
-use AbCreative\LaravelMaker\Builders\ModelBuilder;
-use AbCreative\LaravelMaker\Builders\ControllerBuilder;
-use AbCreative\LaravelMaker\Builders\RequestBuilder;
-use AbCreative\LaravelMaker\Builders\MigrationBuilder;
-use AbCreative\LaravelMaker\Builders\ViewBuilder;
-use AbCreative\LaravelMaker\Builders\RouteBuilder;
 
 class BuildCrudCommand extends BaseCommand
 {
@@ -34,25 +27,21 @@ class BuildCrudCommand extends BaseCommand
      * @var string
      */
     protected $description = 'Create a new model, controllers, routes, views and migration';
-    
-    
+
     /**
      * The resource_types to run...
-     * 
+     *
      * @var array
      */
     protected $resource_types = [
-        
+
         'Migration',
         'Controller',
         'Template',
         'Model',
         'Request',
         'View',
-        'Route'
-        
-    ];
+        'Route',
 
-    
- 
+    ];
 }

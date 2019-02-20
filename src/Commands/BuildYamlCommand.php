@@ -2,13 +2,10 @@
 
 namespace AbCreative\LaravelMaker\Commands;
 
+use AbCreative\LaravelMaker\ProcessTables;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Schema;
-use AbCreative\LaravelMaker\ProcessTables;
-use AbCreative\LaravelMaker\Builders\YamlBuilder;
-
-
 
 class BuildYamlCommand extends BaseCommand
 {
@@ -33,8 +30,6 @@ class BuildYamlCommand extends BaseCommand
      */
     protected $description = 'Create Yaml from one or more database tables';
 
-    
-   
     /**
      * Execute the console command.
      *
@@ -42,57 +37,42 @@ class BuildYamlCommand extends BaseCommand
      */
     public function handle()
     {
-    
         $tables = trim($this->input->getArgument('tables'));
 
         $this->force = $this->option('force');
-        
+
         $this->clean = $this->option('clean');
-        
+
         $object_type = 'Builder';
-        
+
         if ($this->clean == true) {
-        
             $object_type = 'Cleaner';
-        
         }
-    
+
         $tables = array_map('trim', explode(',', $tables));
 
-        if (!empty($tables)) {
-            
+        if (! empty($tables)) {
             foreach ($tables as $table) {
-
                 if (! Schema::hasTable($table)) {
-    
-                    $this->error('Table ' . $table . ' does not exist');
-                    
+                    $this->error('Table '.$table.' does not exist');
+
                     return false;
-                    
                 }
-  
             }
-            
+
             $resource = new ProcessTables($tables);
-            
+
             $resource->process();
 
-            $object = 'AbCreative\\LaravelMaker\\' . str_plural($object_type) . '\\Yaml' . $object_type;
-            
+            $object = 'AbCreative\\LaravelMaker\\'.str_plural($object_type).'\\Yaml'.$object_type;
+
             new $object($this, $resource);
-            
-            /*
-           
-            */
 
-            
+        /*
+
+        */
         } else {
-            
             $this->error('Please specify tables');
-            
         }
-
     }
-
-
 }

@@ -2,12 +2,7 @@
 
 namespace AbCreative\LaravelMaker\Builders;
 
-
-
-interface BuilderInterface {
-    
-    
+interface BuilderInterface
+{
     public function init();
-    
-    
 }
