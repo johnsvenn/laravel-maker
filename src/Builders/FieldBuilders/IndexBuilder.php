@@ -2,8 +2,6 @@
 
 namespace AbCreative\LaravelMaker\Builders\FieldBuilders;
 
-class IndexBuilder extends BaseFieldBuilder implements IndexInterface {
-    
-    
-    
+class IndexBuilder extends BaseFieldBuilder implements IndexInterface
+{
 }

@@ -2,15 +2,12 @@
 
 namespace AbCreative\LaravelMaker;
 
-use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Facades\DB;
-use AbCreative\LaravelMaker\ProcessTables;
-use AbCreative\LaravelMaker\Parsers\TestbenchFieldParser;
 use Illuminate\Support\Facades\File;
+use Orchestra\Testbench\TestCase;
 
 class ParseTableTest extends Testcase
 {
-    
     /**
      * Define environment setup.
      *
@@ -19,7 +16,6 @@ class ParseTableTest extends Testcase
      */
     protected function getEnvironmentSetUp($app)
     {
-    
         $app['config']->set('database.default', 'mysql');
         $app['config']->set('database.connections.mysql', [
                 'driver'   => 'mysql',
@@ -29,61 +25,46 @@ class ParseTableTest extends Testcase
                 'password' => env('DB_PASSWORD', 'secret'),
         ]);
     }
-    
+
     protected function load()
     {
-        
-     
+        $contents = File::get(__DIR__.'/data/createyaml.sql');
 
-        $contents = File::get(__DIR__ . '/data/createyaml.sql');
-        
         DB::unprepared($contents);
-        
     }
-    
+
     protected function unload()
     {
-    
+        $contents = File::get(__DIR__.'/data/drop_createyaml.sql');
 
-        $contents = File::get(__DIR__ . '/data/drop_createyaml.sql');
-        
         DB::unprepared($contents);
-    
     }
-    
+
     /**
-     * Create a database table 
+     * Create a database table
      * Parse the table
-     * Check that created Yaml matches the expected Yaml
+     * Check that created Yaml matches the expected Yaml.
      */
     public function testParseTableToYaml()
     {
-
         $this->load();
-        
+
         //
 
-        $tables = array('examples');
-        
+        $tables = ['examples'];
+
         $resource = new ProcessTables($tables);
-        
+
         $resource->process();
-        
+
         $test = $resource->output();
 
-        $expected = File::get(__DIR__ . '/data/example.yaml');
-        
+        $expected = File::get(__DIR__.'/data/example.yaml');
+
         $this->assertEquals($test, $expected);
- 
+
         //
-        
+
         $this->unload();
-        
     }
-    
-    
-    
-    
-    
-    
 }

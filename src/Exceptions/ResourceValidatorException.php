@@ -3,11 +3,9 @@
 namespace AbCreative\LaravelMaker\Exceptions;
 
 /**
- * Format
+ * Format.
  * @author john
- *
  */
-class ResourceValidatorException extends \Exception {
-    
-    
+class ResourceValidatorException extends \Exception
+{
 }

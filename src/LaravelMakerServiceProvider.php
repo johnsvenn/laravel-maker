@@ -14,8 +14,8 @@ class LaravelMakerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/config/maker.php' => config_path('maker.php'),
-            __DIR__ . '/stubs/database/definitions/example.yaml' => database_path('definitions/example.yaml'),
+            __DIR__.'/config/maker.php' => config_path('maker.php'),
+            __DIR__.'/stubs/database/definitions/example.yaml' => database_path('definitions/example.yaml'),
         ]);
     }
 
@@ -26,7 +26,6 @@ class LaravelMakerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        
         $this->commands(
             'AbCreative\LaravelMaker\Commands\BuildCrudCommand',
             'AbCreative\LaravelMaker\Commands\BuildViewCommand',
@@ -38,10 +37,9 @@ class LaravelMakerServiceProvider extends ServiceProvider
             'AbCreative\LaravelMaker\Commands\BuildRouteCommand',
             'AbCreative\LaravelMaker\Commands\BuildYamlCommand'
         );
-        
+
         $this->mergeConfigFrom(
-            __DIR__ . '/config/maker.php', 'maker'
+            __DIR__.'/config/maker.php', 'maker'
         );
-        
     }
 }
