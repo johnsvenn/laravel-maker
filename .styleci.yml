@@ -12,3 +12,4 @@ finder:
   not-name:
     - "*.blade.php"
     - "*.stub"
+      
